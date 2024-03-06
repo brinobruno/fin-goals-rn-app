@@ -1,9 +1,9 @@
-import { View } from "react-native"
+import { View } from 'react-native'
 
-import { colors } from "@/styles/colors"
-import { TransactionType } from "@/components/TransactionType"
+import { colors } from '@/styles/colors'
+import { TransactionType } from '@/components/TransactionType'
 
-type TransactionType = "up" | "down"
+type TransactionType = 'up' | 'down'
 
 type Props = {
   selected: TransactionType
@@ -15,22 +15,22 @@ export function TransactionTypeSelect({ selected, onChange }: Props) {
     <View className="flex-row gap-4">
       <TransactionType
         type={{
-          icon: "add",
-          title: "Depósito",
+          icon: 'add',
+          title: 'Depósito',
           color: colors.green[500],
-          selected: selected === "up",
+          selected: selected === 'up',
         }}
-        onPress={() => onChange("up")}
+        onPress={() => onChange('up')}
       />
 
       <TransactionType
         type={{
-          icon: "remove",
-          title: "Saque",
+          icon: 'remove',
+          title: 'Saque',
           color: colors.red[500],
-          selected: selected === "down",
+          selected: selected === 'down',
         }}
-        onPress={() => onChange("down")}
+        onPress={() => onChange('down')}
       />
     </View>
   )

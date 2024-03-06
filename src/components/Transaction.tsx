@@ -1,7 +1,7 @@
-import { Pressable, PressableProps, Text } from "react-native"
+import { Pressable, PressableProps, Text } from 'react-native'
 
-import { currencyFormat } from "@/utils/currencyFormat"
-import { colors } from "@/styles/colors"
+import { currencyFormat } from '@/utils/currencyFormat'
+import { colors } from '@/styles/colors'
 
 export type TransactionProps = {
   date: string
@@ -24,8 +24,8 @@ export function Transaction({ transaction, ...rest }: Props) {
           color: transaction.amount < 0 ? colors.red[500] : colors.green[500],
         }}
       >
-        {transaction.amount < 0 ? "- " : "+ "}
-        {currencyFormat(transaction.amount).replace("-", "")}
+        {transaction.amount < 0 ? '- ' : '+ '}
+        {currencyFormat(transaction.amount).replace('-', '')}
       </Text>
 
       <Text className="text-gray-300 font-regular text-sm">

@@ -1,20 +1,17 @@
-// LIBS
-import { useEffect, useRef, useState } from "react"
-import { Alert, View, Keyboard } from "react-native"
-import Bottom from "@gorhom/bottom-sheet"
-import { router } from "expo-router"
-import dayjs from "dayjs"
+import { useEffect, useRef, useState } from 'react'
+import { Alert, View, Keyboard } from 'react-native'
+import Bottom from '@gorhom/bottom-sheet'
+import { router } from 'expo-router'
+import dayjs from 'dayjs'
 
-// COMPONENTS
-import { Input } from "@/components/Input"
-import { Header } from "@/components/Header"
-import { Button } from "@/components/Button"
-import { BottomSheet } from "@/components/BottomSheet"
-import { Goals, GoalsProps } from "@/components/Goals"
-import { Transactions, TransactionsProps } from "@/components/Transactions"
+import { Input } from '@/components/Input'
+import { Header } from '@/components/Header'
+import { Button } from '@/components/Button'
+import { BottomSheet } from '@/components/BottomSheet'
+import { Goals, GoalsProps } from '@/components/Goals'
+import { Transactions, TransactionsProps } from '@/components/Transactions'
 
-// UTILS
-import { mocks } from "@/utils/mocks"
+import { mocks } from '@/utils/mocks'
 
 export default function Home() {
   // LISTS
@@ -22,8 +19,8 @@ export default function Home() {
   const [goals, setGoals] = useState<GoalsProps>([])
 
   // FORM
-  const [name, setName] = useState("")
-  const [total, setTotal] = useState("")
+  const [name, setName] = useState('')
+  const [total, setTotal] = useState('')
 
   // BOTTOM SHEET
   const bottomSheetRef = useRef<Bottom>(null)
@@ -31,27 +28,27 @@ export default function Home() {
   const handleBottomSheetClose = () => bottomSheetRef.current?.snapToIndex(0)
 
   function handleDetails(id: string) {
-    router.navigate("/details/" + id)
+    router.navigate('/details/' + id)
   }
 
   async function handleCreate() {
     try {
-      const totalAsNumber = Number(total.toString().replace(",", "."))
+      const totalAsNumber = Number(total.toString().replace(',', '.'))
 
       if (isNaN(totalAsNumber)) {
-        return Alert.alert("Erro", "Valor inválido.")
+        return Alert.alert('Erro', 'Valor inválido.')
       }
 
       console.log({ name, total: totalAsNumber })
 
       Keyboard.dismiss()
       handleBottomSheetClose()
-      Alert.alert("Sucesso", "Meta cadastrada!")
+      Alert.alert('Sucesso', 'Meta cadastrada!')
 
-      setName("")
-      setTotal("")
+      setName('')
+      setTotal('')
     } catch (error) {
-      Alert.alert("Erro", "Não foi possível cadastrar.")
+      Alert.alert('Erro', 'Não foi possível cadastrar.')
       console.log(error)
     }
   }
@@ -72,8 +69,8 @@ export default function Home() {
       setTransactions(
         response.map((item) => ({
           ...item,
-          date: dayjs(item.created_at).format("DD/MM/YYYY [às] HH:mm"),
-        }))
+          date: dayjs(item.created_at).format('DD/MM/YYYY [às] HH:mm'),
+        })),
       )
     } catch (error) {
       console.log(error)

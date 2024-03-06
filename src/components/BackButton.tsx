@@ -1,6 +1,6 @@
-import { Link } from "expo-router"
-import MaterialIcons from "@expo/vector-icons/MaterialIcons"
-import { colors } from "@/styles/colors"
+import { Link } from 'expo-router'
+import MaterialIcons from '@expo/vector-icons/MaterialIcons'
+import { colors } from '@/styles/colors'
 
 export function BackButton() {
   return (

@@ -1,9 +1,9 @@
-import React, { ReactNode, forwardRef } from "react"
-import { Text, View } from "react-native"
-import Bottom from "@gorhom/bottom-sheet"
-import MaterialIcons from "@expo/vector-icons/MaterialIcons"
+import React, { ReactNode, forwardRef } from 'react'
+import { Text, View } from 'react-native'
+import Bottom from '@gorhom/bottom-sheet'
+import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 
-import { colors } from "@/styles/colors"
+import { colors } from '@/styles/colors'
 
 export type Props = {
   onClose: () => void
@@ -44,5 +44,5 @@ export const BottomSheet = forwardRef<Bottom, Props>(
         </View>
       </Bottom>
     )
-  }
+  },
 )

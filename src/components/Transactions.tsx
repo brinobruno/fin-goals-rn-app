@@ -1,6 +1,6 @@
-import { FlatList, Text, View } from "react-native"
+import { FlatList, Text, View } from 'react-native'
 
-import { Transaction, TransactionProps } from "@/components/Transaction"
+import { Transaction, TransactionProps } from '@/components/Transaction'
 
 export type TransactionsProps = TransactionProps[]
 

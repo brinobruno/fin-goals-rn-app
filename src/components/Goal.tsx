@@ -1,7 +1,7 @@
-import { Text, TouchableOpacity, TouchableOpacityProps } from "react-native"
+import { Text, TouchableOpacity, TouchableOpacityProps } from 'react-native'
 
-import { Progress } from "@/components/Progress"
-import { currencyFormat } from "@/utils/currencyFormat"
+import { Progress } from '@/components/Progress'
+import { currencyFormat } from '@/utils/currencyFormat'
 
 export type GoalProps = {
   name: string
