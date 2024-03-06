@@ -34,7 +34,7 @@ export function useGoalRepository() {
   function all() {
     try {
       return database.getAllSync<GoalResponseDatabase>(`
-        SELECT g.id, g.name, g.total, COALESCE(SUM(t.amount), 0) AS CURRENT
+        SELECT g.id, g.name, g.total, COALESCE(SUM(t.amount), 0) AS current
         FROM goals AS g
         LEFT JOIN transactions t ON t.goal_id = g.id
         GROUP BY g.id, g.name, g.total;
@@ -47,7 +47,7 @@ export function useGoalRepository() {
 
   function show(id: number) {
     const statement = database.prepareSync(`
-      SELECT g.id, g.name, g.total, COALESCE(SUM(t.amount), 0) AS CURRENT
+      SELECT g.id, g.name, g.total, COALESCE(SUM(t.amount), 0) AS current
       FROM goals AS g
       LEFT JOIN transactions t ON t.goal_id = g.id
       WHERE g.id = $id
